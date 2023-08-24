@@ -22,12 +22,12 @@ export default function FeaturedImage({ image, alt }) {
 
   return (
     <>
-      <Image
+      {/* <Image
         src={img.src}
         fill
         style={{ objectFit: "cover" }}
         alt={alt}
-      ></Image>
+      ></Image> */}
     </>
   );
 }

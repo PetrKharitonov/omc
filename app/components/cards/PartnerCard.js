@@ -11,14 +11,14 @@ const PartnerCard = ({ logo, title, description, link, docs }) => {
 
   const windowWidth = useWindowWidth();
 
-  if (logo == undefined)
+  /* if (logo == undefined)
     logo = {
       sourceUrl: "",
       mediaDetails: {
         width: 0,
         height: 0,
       },
-    };
+    }; */
 
   return (
     <div
@@ -29,14 +29,16 @@ const PartnerCard = ({ logo, title, description, link, docs }) => {
       {isHover || windowWidth < 500 ? (
         <div className="partnerCard-container">
           <div className="partnerCard-content">
-            {windowWidth < 500 && logo != undefined && (
-              <Image
+            {windowWidth < 500 &&
+              logo != undefined &&
+              {
+                /* <Image
                 alt={title}
                 src={logo.sourceUrl}
                 width={logo.mediaDetails.width / 2}
                 height={logo.mediaDetails.height / 2}
-              />
-            )}
+              /> */
+              }}
             <h4>{title}</h4>
             <p>{description}</p>
             {docs.length > 0 && (
@@ -67,14 +69,14 @@ const PartnerCard = ({ logo, title, description, link, docs }) => {
         </div>
       ) : (
         <div className="partnerCard-logoholder">
-          {logo != undefined && (
+          {/* {logo != undefined && (
             <Image
               alt={title}
               src={logo.sourceUrl}
               width={logo.mediaDetails.width}
               height={logo.mediaDetails.height}
             />
-          )}
+          )} */}
         </div>
       )}
     </div>
