@@ -5,7 +5,11 @@ import "./globals.css";
 import { Wix_Madefor_Text } from "next/font/google";
 import Script from "next/script";
 
-const wixMadeforText = Wix_Madefor_Text({ subsets: ["latin"] });
+const wixMadeforText = Wix_Madefor_Text({
+  subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false,
+});
 
 export const metadata = {
   title: "Create Next App",
