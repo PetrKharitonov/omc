@@ -1,0 +1,9 @@
+.secBtn {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: solid 1px #2580e5;
+  color: #2580e5;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}

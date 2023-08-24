@@ -1,4 +1,22 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "wpnexttest.local",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+  webpack: (config) => {
+    config.externals.push({
+      ymaps: "ymaps",
+    });
 
-module.exports = nextConfig
+    return config;
+  },
+};
+
+module.exports = nextConfig;

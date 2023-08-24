@@ -1,0 +1,50 @@
+.partnerForm-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.partnerForm-container h3 {
+  font-weight: 500;
+}
+
+.partnerForm-container p {
+}
+
+.partnerForm-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.partnerForm-container form input {
+  padding: 14px 10px;
+  border: 0;
+  border-bottom: 1px solid #232323;
+}
+
+.partnerForm-container form input:focus {
+  outline: none;
+}
+
+.partnerForm-ckeck-container {
+  display: flex;
+  gap: 10px;
+}
+
+.partnerForm-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.partnerForm-container form button {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  background-color: #aaaaaa;
+}
