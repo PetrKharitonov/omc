@@ -3,8 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "wpnexttest.local",
+        protocol: "https",
+        hostname: "wp.anoomc.ru",
         port: "",
         pathname: "/**",
       },
