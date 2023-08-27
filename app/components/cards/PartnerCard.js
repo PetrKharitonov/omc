@@ -11,15 +11,6 @@ const PartnerCard = ({ logo, title, description, link, docs }) => {
 
   const windowWidth = useWindowWidth();
 
-  if (logo == undefined)
-    logo = {
-      sourceUrl: "",
-      mediaDetails: {
-        width: 0,
-        height: 0,
-      },
-    };
-
   return (
     <div
       className="partnerCard"
@@ -67,14 +58,14 @@ const PartnerCard = ({ logo, title, description, link, docs }) => {
         </div>
       ) : (
         <div className="partnerCard-logoholder">
-          {/* {logo != undefined && (
+          {logo != undefined && (
             <Image
               alt={title}
               src={logo.sourceUrl}
               width={logo.mediaDetails.width}
               height={logo.mediaDetails.height}
             />
-          )} */}
+          )}
         </div>
       )}
     </div>
