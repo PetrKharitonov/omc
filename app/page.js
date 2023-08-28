@@ -2,6 +2,7 @@ import Image from "next/image";
 import "./mainPage.css";
 import MainBtn from "./components/btns/MainBtn";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import SecBtn from "./components/btns/SecBtn";
 import MainSwiper from "./components/swipers/MainSwiper";
 import PartnersSwiper from "./components/swipers/PartnersSwiper";
@@ -11,6 +12,7 @@ import { getStuff } from "@/app/lib/getStuff";
 import StuffSwiper from "./components/swipers/StuffSwiper";
 import PartnerForm from "./components/forms/PartnerForm";
 import PartnerFormContainer from "./components/forms/PartnerFormContainer";
+import Link from "next/link";
 
 export default async function Home() {
   const posts = await getLastPosts();
@@ -189,8 +191,8 @@ export default async function Home() {
 
         <div className="wrapper solvingProblem-btn">
           <MainBtn>
-            <p>Подробный путь</p>
-            <AiOutlineArrowDown size={20} />
+          <Link href="/client">Подробный путь</Link>
+            <AiOutlineArrowRight size={20} />
           </MainBtn>
         </div>
       </div>

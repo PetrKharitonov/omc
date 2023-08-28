@@ -4,10 +4,12 @@ import "./ContactFooter.css";
 import React, { useState, useEffect } from "react";
 import SecBtn from "./btns/SecBtn";
 import { MdLocationOn, MdEmail } from "react-icons/md";
+import { BsTelegram, BsYoutube } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { useWindowWidth } from "../hooks/useWindowWidth";
 import { sendPartnerForm } from "../lib/api";
+import Image from "next/image";
 
 const initValues = {
   name: "",
@@ -166,9 +168,33 @@ const ContactFooter = () => {
                 </div>
               </div>
             </div>
+            
+
             <div className="contact-data">
               <h4>Социальные сети:</h4>
+              <div className="contact-social">
+                <div className="contact-info-el contact-el">
+                <BsTelegram style={{ flexShrink: "0" }} />
+                  <p>@anoomc</p>
+                </div>
+                <div className="contact-info-el contact-el">
+                <BsYoutube style={{ flexShrink: "0" }} />
+                  <p>anoomc</p>
+                </div>
+                <div className="contact-info-el contact-el">
+                <Image
+                src="/icon-rutube.svg"
+                alt="logo Rutube"
+                width={15.86}
+                height={15.86}
+                priority
+              />
+                  <p>anoomc</p>
+                </div>
+              </div>
             </div>
+
+
           </div>
           {windowWidth > 940 && <SecBtn>Скачать презентацию</SecBtn>}
         </div>

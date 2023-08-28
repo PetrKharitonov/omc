@@ -86,7 +86,7 @@
 .contactFooter-contacts-data {
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 80px;
 }
 
 @media (max-width: 740px) {
@@ -121,6 +121,12 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.contact-social {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .contact-info-el-num {
