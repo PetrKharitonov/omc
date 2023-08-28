@@ -42,10 +42,15 @@
   justify-content: flex-end;
 }
 
-.partnerForm-container form button {
+.form-btn {
   padding: 10px 20px;
   border: 0;
   border-radius: 10px;
   color: white;
   background-color: #aaaaaa;
+}
+
+#form-btn_active {
+  background-color: #2580e5;
+  cursor: pointer;
 }

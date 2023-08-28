@@ -2,44 +2,44 @@
 import { useState } from "react";
 import "./PartnerForm.css";
 import { MdClose } from "react-icons/md";
+import { sendPartnerForm } from "@/app/lib/api";
+
+const initValues = {
+  name: "",
+  company: "",
+  number: "",
+  email: "",
+};
+
+const initState = { values: initValues };
 
 const PartnerForm = ({ closeForm }) => {
-  const [values, setFormValues] = useState({
-    name: "",
-    company: "",
-    num: "",
-    email: "",
-  });
+  const [state, setState] = useState(initState);
+  const [checked, setChecked] = useState(false);
 
-  /*  const handleChange = (e) => setFormValues((prev) => ({
-    ...prev,
+  const { values } = state;
 
-  })); */
+  const handleCheck = () => {
+    setChecked((current) => !current);
+  };
+
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!checked) return;
 
-    const data = {
-      partnerFormName: event.target.partnerFormName.value,
-      partnerFormComp: event.target.partnerFormComp.value,
-      partnerFormNum: event.target.partnerFormNum.value,
-      partnerFormEmail: event.target.partnerFormEmail.value,
-    };
+    const data = { values, subject: "Заявка в партнёры" };
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      console.log("message sent");
-    }
-    if (!response.ok) {
-      console.log("error");
-    }
+    await sendPartnerForm(data);
+    closeForm();
   }
 
   return (
@@ -63,36 +63,41 @@ const PartnerForm = ({ closeForm }) => {
         <input
           type="text"
           id="partnerForm-name"
-          name="partnerFormName"
+          name="name"
           placeholder="Имя"
           value={values.name}
+          onChange={handleChange}
         ></input>
         <input
           type="text"
           id="partnerForm-comp"
-          name="partnerFormComp"
+          name="company"
           placeholder="Наименование организации"
           value={values.company}
+          onChange={handleChange}
         ></input>
         <input
           type="tel"
           id="partnerForm-num"
-          name="partnerFormNum"
+          name="number"
           placeholder="Номер телефона"
-          value={values.num}
+          value={values.number}
+          onChange={handleChange}
         ></input>
         <input
           type="email"
           id="partnerForm-email"
-          name="partnerFormEmail"
+          name="email"
           placeholder="Эл. почта"
           value={values.email}
+          onChange={handleChange}
         ></input>
         <div className="partnerForm-ckeck-container">
           <input
             type="checkbox"
             id="partnerForm-check"
             name="partnerForm-check"
+            onClick={handleCheck}
           ></input>
           <label for="partnerForm-check">
             Я согласен на обработку персональных данных
@@ -100,7 +105,19 @@ const PartnerForm = ({ closeForm }) => {
         </div>
 
         <div className="partnerForm-btn-container">
-          <button type="submit">Отправить</button>
+          {checked &&
+          values.name &&
+          values.email &&
+          values.company &&
+          values.number ? (
+            <button type="submit" className="form-btn" id="form-btn_active">
+              Отправить
+            </button>
+          ) : (
+            <button type="button" className="form-btn">
+              Отправить
+            </button>
+          )}
         </div>
       </form>
     </div>

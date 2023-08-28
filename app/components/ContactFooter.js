@@ -7,10 +7,44 @@ import { MdLocationOn, MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { useWindowWidth } from "../hooks/useWindowWidth";
+import { sendPartnerForm } from "../lib/api";
+
+const initValues = {
+  name: "",
+  company: "",
+  number: "",
+  email: "",
+};
+
+const initState = { values: initValues };
 
 const ContactFooter = () => {
-  function handleSubmit(event) {
+  const [state, setState] = useState(initState);
+  const [checked, setChecked] = useState(false);
+
+  const { values } = state;
+
+  const handleCheck = () => {
+    setChecked((current) => !current);
+  };
+
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  async function handleSubmit(event) {
     event.preventDefault();
+    if (!checked) return;
+
+    const data = { values, subject: "Заявка на обратную связь" };
+
+    await sendPartnerForm(data);
+    setState(initState);
   }
 
   const windowWidth = useWindowWidth();
@@ -30,32 +64,41 @@ const ContactFooter = () => {
             <input
               type="text"
               id="contactForm-name"
-              name="contactFormName"
+              name="name"
               placeholder="Имя"
+              value={values.name}
+              onChange={handleChange}
             ></input>
             <input
               type="text"
               id="contactForm-comp"
-              name="contactFormComp"
+              name="company"
               placeholder="Название компании"
+              value={values.company}
+              onChange={handleChange}
             ></input>
             <input
               type="tel"
               id="contactForm-num"
-              name="contactFormNum"
+              name="number"
               placeholder="Номер телефона"
+              value={values.number}
+              onChange={handleChange}
             ></input>
             <input
               type="email"
               id="contactForm-email"
-              name="contactFormEmail"
+              name="email"
               placeholder="Эл. почта"
+              value={values.email}
+              onChange={handleChange}
             ></input>
             <div className="contactForm-ckeck-container">
               <input
                 type="checkbox"
                 id="contactForm-check"
                 name="contactForm-check"
+                onClick={handleCheck}
               ></input>
               <label htmlFor="contactForm-check">
                 Я согласен на обработку персональных данных
@@ -63,7 +106,19 @@ const ContactFooter = () => {
             </div>
 
             <div className="contactForm-btn-container">
-              <button type="submit">Отправить</button>
+              {checked &&
+              values.name &&
+              values.email &&
+              values.company &&
+              values.number ? (
+                <button type="submit" className="form-btn" id="form-btn_active">
+                  Отправить
+                </button>
+              ) : (
+                <button type="button" className="form-btn">
+                  Отправить
+                </button>
+              )}
             </div>
           </form>
           {windowWidth < 940 && <SecBtn>Скачать презентацию</SecBtn>}
