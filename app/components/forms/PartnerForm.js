@@ -11,7 +11,10 @@ const PartnerForm = ({ closeForm }) => {
     email: "",
   });
 
-  const handleChange = (e) => {};
+  /*  const handleChange = (e) => setFormValues((prev) => ({
+    ...prev,
+
+  })); */
 
   async function handleSubmit(event) {
     event.preventDefault();
