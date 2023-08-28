@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
 
-const email = "anoomc@yandex.com";
-const pass = "ilgidyyzlbbhrqzd";
+const email = process.env.NEXT_PUBLIC_EMAIL_USER;
+const pass = process.env.NEXT_PUBLIC_EMAIL_PASS;
 
 export const transporter = nodemailer.createTransport({
   pool: true,
-  host: "smtp.yandex.com",
+  host: process.env.NEXT_PUBLIC_EMAIL_HOST,
   port: 465,
   secure: true,
   auth: {
@@ -16,5 +16,5 @@ export const transporter = nodemailer.createTransport({
 
 export const mailOptions = {
   from: email,
-  to: "anoomc@anoomc.ru",
+  to: process.env.NEXT_PUBLIC_EMAIL_SEND_TO,
 };
