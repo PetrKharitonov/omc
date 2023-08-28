@@ -213,3 +213,8 @@ button.swiper-pagination-bullet {
   flex-shrink: 0;
   font-size: 30px;
 }
+
+.swiper {
+  min-width: 0 !important;
+  overflow-clip-margin: 14px;
+}

@@ -10,6 +10,7 @@ import { getPartners } from "@/app/lib/getPartners";
 import { getStuff } from "@/app/lib/getStuff";
 import StuffSwiper from "./components/swipers/StuffSwiper";
 import PartnerForm from "./components/forms/PartnerForm";
+import PartnerFormContainer from "./components/forms/PartnerFormContainer";
 
 export default async function Home() {
   const posts = await getLastPosts();
@@ -201,6 +202,7 @@ export default async function Home() {
         <div className="mainPartners-swiper">
           <PartnersSwiper partners={partners} />
         </div>
+        <PartnerFormContainer />
       </div>
       <div className="stuffBlock wrapper-wide">
         <div className="wrapper">

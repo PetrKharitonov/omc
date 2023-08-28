@@ -80,7 +80,7 @@ button {
   position: absolute;
   inset: -10px;
   z-index: -1;
-  background: linear-gradient(rgba(0, 0, 0, 0.06), #fafafa);
+  background: linear-gradient(rgba(0, 0, 0, 0.09), #fafafa);
   filter: blur(39px);
 }
 
@@ -97,4 +97,21 @@ button {
 
 .block {
   height: 1000px;
+}
+
+.setting-anim {
+  animation-name: rotating;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

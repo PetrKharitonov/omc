@@ -1,8 +1,9 @@
 import "./MainBtn.css";
 
-const MainBtn = ({ children }) => {
+const MainBtn = ({ children, onClick }) => {
   return (
     <button
+      onClick={onClick}
       className={children.length === 2 ? "mainBtn mainBtn-arrow" : "mainBtn"}
     >
       {children}

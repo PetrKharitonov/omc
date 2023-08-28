@@ -1,4 +1,4 @@
 const ContactsPage = () => {
-  return <div>ContactsPage</div>;
+  return <div className="wrapper">_</div>;
 };
 export default ContactsPage;

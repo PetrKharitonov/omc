@@ -1,7 +1,18 @@
 "use client";
+import { useState } from "react";
 import "./PartnerForm.css";
+import { MdClose } from "react-icons/md";
 
-const PartnerForm = () => {
+const PartnerForm = ({ closeForm }) => {
+  const [values, setFormValues] = useState({
+    name: "",
+    company: "",
+    num: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {};
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -30,6 +41,16 @@ const PartnerForm = () => {
 
   return (
     <div className="partnerForm-container">
+      <MdClose
+        size={25}
+        style={{
+          position: "absolute",
+          right: "10px",
+          top: "10px",
+          cursor: "pointer",
+        }}
+        onClick={closeForm}
+      />
       <h3>Стать партнёром</h3>
       <p>
         Оставьте свои контакты, чтобы вместе с нами содействовать развитию
@@ -41,24 +62,28 @@ const PartnerForm = () => {
           id="partnerForm-name"
           name="partnerFormName"
           placeholder="Имя"
+          value={values.name}
         ></input>
         <input
           type="text"
           id="partnerForm-comp"
           name="partnerFormComp"
           placeholder="Наименование организации"
+          value={values.company}
         ></input>
         <input
           type="tel"
           id="partnerForm-num"
           name="partnerFormNum"
           placeholder="Номер телефона"
+          value={values.num}
         ></input>
         <input
           type="email"
           id="partnerForm-email"
           name="partnerFormEmail"
           placeholder="Эл. почта"
+          value={values.email}
         ></input>
         <div className="partnerForm-ckeck-container">
           <input
