@@ -10,7 +10,6 @@ const PartnerFormContainer = () => {
   const handleToggle = () => {
     setBack((current) => !current);
   };
-  console.log(back);
 
   return (
     <div
