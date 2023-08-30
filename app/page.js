@@ -8,6 +8,7 @@ import PartnersSwiper from "./components/swipers/PartnersSwiper";
 import { getLastPosts } from "./lib/getLastPosts";
 import { getPartners } from "@/app/lib/getPartners";
 import { getStuff } from "@/app/lib/getStuff";
+import { getPresentation } from "@/app/lib/getPresentation";
 import StuffSwiper from "./components/swipers/StuffSwiper";
 import PartnerForm from "./components/forms/PartnerForm";
 import PartnerFormContainer from "./components/forms/PartnerFormContainer";
@@ -16,6 +17,9 @@ export default async function Home() {
   const posts = await getLastPosts();
   const partners = await getPartners();
   const stuff = await getStuff();
+  const presentataionUrl = await getPresentation();
+
+  const presLink = presentataionUrl.pres.file.mediaItemUrl;
 
   return (
     <div>
@@ -49,17 +53,19 @@ export default async function Home() {
             <p>
               Нашей целью является формирование комфортной инфраструктуры для
               предприятий, попавших в трудную экономическую ситуацию и не
-              только, обеспечивающей получения всей необходимой помощи,
+              только, обеспечивающей получение всей необходимой помощи,
               связанной с выходом из сложных ситуаций и решением различных
               бизнес задач.
             </p>
 
             <div className="infoBlock-btns">
-              <MainBtn>
+              <MainBtn contacts={true}>
                 <p>Связаться с нами</p>
                 <AiOutlineArrowDown size={20} />
               </MainBtn>
-              <SecBtn>Скачать презентацию</SecBtn>
+              <a href={presLink} className="secBtn">
+                Смотреть презентацию
+              </a>
             </div>
           </div>
 
@@ -204,15 +210,14 @@ export default async function Home() {
         </div>
         <PartnerFormContainer />
       </div>
-      <div className="stuffBlock wrapper-wide">
+      {/* <div className="stuffBlock wrapper-wide">
         <div className="wrapper">
           <h2>Руководство</h2>
         </div>
         <div className="stuffBlock-swiper">
           <StuffSwiper stuff={stuff} />
         </div>
-      </div>
-      {/* <div className="block"></div> */}
+      </div> */}
     </div>
   );
 }

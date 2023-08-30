@@ -170,7 +170,9 @@ const ContactFooter = () => {
               <h4>Социальные сети:</h4>
             </div>
           </div>
-          {windowWidth > 940 && <SecBtn>Скачать презентацию</SecBtn>}
+          {windowWidth > 940 && (
+            <SecBtn fileUrl={""}>Скачать презентацию</SecBtn>
+          )}
         </div>
       </div>
     </div>

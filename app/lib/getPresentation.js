@@ -1,0 +1,26 @@
+const getPresentation = async () => {
+  const res = await fetch(process.env.WORDPRESS_GRAPHQL_ENDPOINT, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      query: `query getPresentation {
+            pres(last: 1) {
+              nodes {
+                pres {
+                  file {
+                    mediaItemUrl
+                  }
+                }
+              }
+            }
+          }`,
+    }),
+    next: { revalidate: 10 },
+  });
+
+  const data = await res.json();
+
+  return data.data.pres.nodes[0];
+};
+
+export { getPresentation };
