@@ -63,7 +63,7 @@ export default async function Home() {
                 <p>Связаться с нами</p>
                 <AiOutlineArrowDown size={20} />
               </MainBtn>
-              <a href={presLink} className="secBtn">
+              <a href={presLink} target="_blank" className="secBtn">
                 Смотреть презентацию
               </a>
             </div>
