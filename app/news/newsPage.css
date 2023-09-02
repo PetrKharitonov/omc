@@ -1,0 +1,34 @@
+.news-header {
+  padding-top: 160px;
+}
+
+.news-header p {
+  margin-top: 10px;
+  max-width: 590px;
+}
+
+.latestEvents {
+  margin-top: 40px;
+  padding-top: 40px;
+}
+
+.latestPartnersEvents {
+  margin-top: 40px;
+}
+
+@media (max-width: 770px) {
+  .latestEvents {
+    margin-top: 40px;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1160px) {
+  .news-header {
+    padding-top: 120px;
+  }
+}
+
+.all-events-news {
+  margin-top: 40px;
+}

@@ -36,11 +36,21 @@ const NavBar = () => {
           </div>
 
           <nav className={nav ? "nav-handler nav-active" : "nav-handler"}>
-            <Link href="/">Главная</Link>
-            <Link href="/client">Клиенту</Link>
-            <Link href="/news">Мероприятия и новости</Link>
-            <Link href="/about">О центре</Link>
-            <Link href="/contacts">Контакты</Link>
+            <Link href="/" onClick={() => setNav(!nav)}>
+              Главная
+            </Link>
+            <Link href="/client" onClick={() => setNav(!nav)}>
+              Клиенту
+            </Link>
+            <Link href="/news" onClick={() => setNav(!nav)}>
+              Мероприятия и новости
+            </Link>
+            <Link href="/about" onClick={() => setNav(!nav)}>
+              О центре
+            </Link>
+            <Link href="/contacts" onClick={() => setNav(!nav)}>
+              Контакты
+            </Link>
           </nav>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { BiSolidCircle } from "react-icons/bi";
+import { useWindowWidth } from "../hooks/useWindowWidth";
 
 const ClientPath = () => {
   const boxRef = useRef();
@@ -24,100 +25,104 @@ const ClientPath = () => {
     return () => window.removeEventListener("scroll", getPosition);
   }, []);
 
+  const windowWidth = useWindowWidth();
+
   return (
     <div>
       <div className="wrapper client-path-container">
-        <div className="path-tags">
-          <svg
-            viewBox="0 0 100 200"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: "absolute", zIndex: "-20" }}
-          >
-            <line
-              x1="5.85"
-              y1="6"
-              x2="5.85"
-              y2="146"
-              stroke="black"
-              strokeWidth={0.4}
-            />
-          </svg>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={y > 2300 ? 30 : 10}
-                color={y > 2300 ? "#2580e5" : "black"}
+        {windowWidth > 1100 && (
+          <div className="path-tags">
+            <svg
+              viewBox="0 0 100 200"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ position: "absolute", zIndex: "-20" }}
+            >
+              <line
+                x1="5.85"
+                y1="6"
+                x2="5.85"
+                y2="146"
+                stroke="black"
+                strokeWidth={0.4}
               />
+            </svg>
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={y > 2300 ? 30 : 10}
+                  color={y > 2300 ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={y > 2300 && "path-tagfw"}>Обращение</p>
             </div>
-            <p className={y > 2300 && "path-tagfw"}>Обращение</p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={2000 < y && 2300 > y ? 30 : 10}
-                color={2000 < y && 2300 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={2000 < y && 2300 > y ? 30 : 10}
+                  color={2000 < y && 2300 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={2000 < y && 2300 > y && "path-tagfw"}>
+                Предварительные переговоры
+              </p>
             </div>
-            <p className={2000 < y && 2300 > y && "path-tagfw"}>
-              Предварительные переговоры
-            </p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={1600 < y && 2000 > y ? 30 : 10}
-                color={1600 < y && 2000 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={1600 < y && 2000 > y ? 30 : 10}
+                  color={1600 < y && 2000 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={1600 < y && 2000 > y && "path-tagfw"}>
+                Проведение Центром многофакторного анализа
+              </p>
             </div>
-            <p className={1600 < y && 2000 > y && "path-tagfw"}>
-              Проведение Центром многофакторного анализа
-            </p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={1200 < y && 1600 > y ? 30 : 10}
-                color={1200 < y && 1600 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={1200 < y && 1600 > y ? 30 : 10}
+                  color={1200 < y && 1600 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={1200 < y && 1600 > y && "path-tagfw"}>
+                Формирование Профайла
+              </p>
             </div>
-            <p className={1200 < y && 1600 > y && "path-tagfw"}>
-              Формирование Профайла
-            </p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={900 < y && 1200 > y ? 30 : 10}
-                color={900 < y && 1200 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={900 < y && 1200 > y ? 30 : 10}
+                  color={900 < y && 1200 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={900 < y && 1200 > y && "path-tagfw"}>
+                Решение о дальнейшем сотрудничестве
+              </p>
             </div>
-            <p className={900 < y && 1200 > y && "path-tagfw"}>
-              Решение о дальнейшем сотрудничестве
-            </p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={600 < y && 900 > y ? 30 : 10}
-                color={600 < y && 900 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={600 < y && 900 > y ? 30 : 10}
+                  color={600 < y && 900 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={600 < y && 900 > y && "path-tagfw"}>
+                Выбор стратегиие
+              </p>
             </div>
-            <p className={600 < y && 900 > y && "path-tagfw"}>
-              Выбор стратегиие
-            </p>
-          </div>
-          <div className="path-tag">
-            <div className="path-tag-circle">
-              <BiSolidCircle
-                size={600 > y ? 30 : 10}
-                color={600 > y ? "#2580e5" : "black"}
-              />
+            <div className="path-tag">
+              <div className="path-tag-circle">
+                <BiSolidCircle
+                  size={600 > y ? 30 : 10}
+                  color={600 > y ? "#2580e5" : "black"}
+                />
+              </div>
+              <p className={600 > y && "path-tagfw"}>
+                Реализация стратегии «под ключ»
+              </p>
             </div>
-            <p className={600 > y && "path-tagfw"}>
-              Реализация стратегии «под ключ»
-            </p>
           </div>
-        </div>
+        )}
 
         <div className="path-items">
           <div
@@ -161,7 +166,7 @@ const ClientPath = () => {
               </p>
             </div>
             <div
-              className="path-image-holder"
+              className="path-image-holder that-image"
               style={{ paddingTop: "30px", paddingLeft: "60px" }}
             >
               <Image

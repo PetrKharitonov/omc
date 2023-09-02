@@ -20,6 +20,10 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  color: inherit;
+}
+
 .wrapper {
   max-width: 1200px;
   padding: 0 20px;

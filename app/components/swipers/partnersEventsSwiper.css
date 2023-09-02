@@ -1,0 +1,19 @@
+.partnersEventsSwiper {
+  width: 100%;
+  display: grid;
+  padding: 0 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  grid-template-columns: 20px 1fr 20px;
+}
+
+.partnersEventsSwiper-block {
+  display: block !important;
+}
+
+@media screen and (max-width: 850px) {
+  .partnersEventsSwiper {
+    display: block !important;
+  }
+}

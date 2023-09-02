@@ -1,0 +1,64 @@
+.eventCard {
+  display: block;
+  background-color: white;
+  border-radius: 10px;
+  height: 436px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.eventCard:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.eventCard-image-holder {
+  position: relative;
+  width: 100%;
+  height: 215px;
+}
+
+@media screen and (max-width: 650px) {
+  .eventCard-image-holder {
+    height: 150px;
+  }
+}
+
+.eventCard-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px;
+}
+
+.eventCard-text-holder {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.eventCard-data {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 650px) {
+  .eventCard-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 280px;
+  }
+  .eventCard-data {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.eventCard-data-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

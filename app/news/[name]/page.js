@@ -1,6 +1,7 @@
 import { getPost } from "@/app/lib/getPost";
 import { FaRegCalendar } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+import { AiOutlineArrowDown } from "react-icons/ai";
 import Image from "next/image";
 import "./newsPage.css";
 
@@ -18,9 +19,9 @@ const page = async ({ params }) => {
     }
   });
 
-  if (post.customdate == null) {
+  /*  if (post.customdate == null) {
     post.customdate = "20";
-  }
+  } */
 
   let monthsDate = {
     1: "Января",
@@ -49,14 +50,25 @@ const page = async ({ params }) => {
 
   let files = [];
 
-  Object.keys(post.files).forEach((key, index) => {
+  Object.keys(post.files).forEach((key) => {
     if (post.files[key] != null) {
       files.push(post.files[key]);
     }
   });
 
+  console.log(files);
+
+  const images = [];
+
+  Object.keys(post.images).forEach((key) => {
+    console.log(key);
+    if (post.images[key] != null) {
+      images.push(post.images[key]);
+    }
+  });
+
   return (
-    <div className="wrapper" style={{ paddingTop: "160px" }}>
+    <div className="wrapper newsMain">
       <div className="newsMain-container">
         <div className="newsMain-content">
           {postType == "omcPostNews" ? (
@@ -64,6 +76,14 @@ const page = async ({ params }) => {
           ) : (
             <div className="newsMain-tag-e">Мероприятие</div>
           )}
+          <div className="newsMain-preview-container-mobile">
+            <Image
+              src={post.preview.sourceUrl}
+              alt={post.title}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
           <h2>{post.title}</h2>
           <div className="newsMain-info">
             <div className="newsMain-date">
@@ -73,7 +93,7 @@ const page = async ({ params }) => {
             {postType != "omcPostNews" && post.adress && (
               <div className="newsMain-adress">
                 <MdLocationOn style={{ flexShrink: "0" }} />
-                {post.adress}
+                <p dangerouslySetInnerHTML={{ __html: post.adress }}></p>
               </div>
             )}
           </div>
@@ -91,14 +111,53 @@ const page = async ({ params }) => {
               style={{ objectFit: "cover" }}
             />
           </div>
-          {files.length != 0 &&
-            files.map((file) => {
-              <div key={file.mediaItemUrl} className="newsMain-file">
-                {file.title}
-              </div>;
-            })}
+          {files.length >= 1 && (
+            <div className="newsMain-file-container">
+              {files.map((file) => {
+                return (
+                  <a
+                    key={file.title}
+                    href={file.mediaItemUrl}
+                    target="_blank"
+                    className="newsMain-file"
+                  >
+                    {file.title}
+                    <AiOutlineArrowDown
+                      size={20}
+                      color="#2580e5"
+                      style={{ transform: "rotate(270deg)" }}
+                    />
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
+      {images.length >= 1 && (
+        <div className=" news-gallery-container">
+          <h2>Фото с мероприятия</h2>
+          <div className="news-gallery">
+            {images.map((image) => {
+              return (
+                <div style={{ position: "relative", minHeight: "0" }}>
+                  <Image
+                    src={image.sourceUrl}
+                    alt={image.sourceUrl}
+                    width={image.mediaDetails.width}
+                    height={image.mediaDetails.height}
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      borderRadius: "10px",
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
