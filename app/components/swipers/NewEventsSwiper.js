@@ -43,7 +43,10 @@ const NewEventsSwiper = ({ posts }) => {
         onSwiper={(swiper) => setSwiperInstance(swiper)}
         breakpoints={{
           1: {
-            slidesPerView: 1,
+            slidesPerView: 1.1,
+          },
+          500: {
+            slidesPerView: 1.2,
           },
           950: {
             slidesPerView: 2,

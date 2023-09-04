@@ -99,27 +99,6 @@ button {
   gap: 20px;
 }
 
-.block {
-  height: 1000px;
-}
-
-.setting-anim {
-  animation-name: rotating;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .blue-background {
   background-color: #2580e5;
 }
