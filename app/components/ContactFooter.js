@@ -58,7 +58,7 @@ const ContactFooter = () => {
         <div className="contactFooter-content">
           <p>
             Нашей целью является формирование комфортной инфраструктуры для
-            предприятий, попавших в трудную экономическую ситуацию и не только.
+            предприятий, попавших в трудную экономическую ситуацию и не только
           </p>
           <form onSubmit={handleSubmit}>
             <input
@@ -166,9 +166,9 @@ const ContactFooter = () => {
                 </div>
               </div>
             </div>
-            <div className="contact-data">
+            {/*  <div className="contact-data">
               <h4>Социальные сети:</h4>
-            </div>
+            </div> */}
           </div>
           {windowWidth > 940 && (
             <SecBtn fileUrl={""}>Скачать презентацию</SecBtn>

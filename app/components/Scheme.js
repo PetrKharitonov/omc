@@ -206,7 +206,7 @@ const Scheme = () => {
         </div>
         <div className="schemeMain">
           <h3>
-            Объединённый <br />
+            Объединенный <br />
             Медиативный <br />
             Центр
           </h3>

@@ -19,7 +19,12 @@ export default async function Home() {
   const stuff = await getStuff();
   const presentataionUrl = await getPresentation();
 
-  const presLink = presentataionUrl.pres.file.mediaItemUrl;
+  let presLink;
+  if (presentataionUrl == undefined) {
+    presLink = undefined;
+  } else {
+    presLink = presentataionUrl.pres.file.mediaItemUrl;
+  }
 
   return (
     <div>
@@ -55,7 +60,7 @@ export default async function Home() {
               предприятий, попавших в трудную экономическую ситуацию и не
               только, обеспечивающей получение всей необходимой помощи,
               связанной с выходом из сложных ситуаций и решением различных
-              бизнес задач.
+              бизнес задач
             </p>
 
             <div className="infoBlock-btns">
@@ -63,9 +68,15 @@ export default async function Home() {
                 <p>Связаться с нами</p>
                 <AiOutlineArrowDown size={20} />
               </MainBtn>
-              <a href={presLink} target="_blank" className="secBtn">
-                Смотреть презентацию
-              </a>
+              {presLink ? (
+                <a href={{ presLink }} target="_blank" className="secBtn">
+                  Смотреть презентацию
+                </a>
+              ) : (
+                <div className="secBtn" style={{ cursor: "pointer" }}>
+                  Смотреть презентацию
+                </div>
+              )}
             </div>
           </div>
 

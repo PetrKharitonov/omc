@@ -31,6 +31,7 @@ const AboutPartners = ({ partners }) => {
                 description={description}
                 link={link}
                 docs={docs}
+                key={title}
               />
             );
           })}

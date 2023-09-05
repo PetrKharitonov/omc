@@ -9,6 +9,7 @@ const page = async ({ params }) => {
   let id = params.name.slice(0, -3);
   const postQ = await getPost(id);
 
+  let wpDate;
   let post;
   let postType;
 
@@ -19,9 +20,15 @@ const page = async ({ params }) => {
     }
   });
 
-  /*  if (post.customdate == null) {
-    post.customdate = "20";
-  } */
+  if (postType == "omcPostNews") {
+    wpDate = postQ.postNewBy.date;
+  } else {
+    wpDate = postQ.postEventBy.date;
+  }
+
+  if (post.customdate == null) {
+    post.customdate = wpDate;
+  }
 
   let monthsDate = {
     1: "Января",
@@ -56,12 +63,9 @@ const page = async ({ params }) => {
     }
   });
 
-  console.log(files);
-
   const images = [];
 
   Object.keys(post.images).forEach((key) => {
-    console.log(key);
     if (post.images[key] != null) {
       images.push(post.images[key]);
     }
@@ -72,7 +76,7 @@ const page = async ({ params }) => {
       <div className="newsMain-container">
         <div className="newsMain-content">
           {postType == "omcPostNews" ? (
-            <div className="newsMain-tag-n">Новость</div>
+            <div className="newsMain-tag-n">Новости</div>
           ) : (
             <div className="newsMain-tag-e">Мероприятие</div>
           )}

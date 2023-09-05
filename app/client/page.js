@@ -67,18 +67,35 @@ const ClientPage = async () => {
           {clientDocs.map((el) => {
             const doc = el.clientdoc;
             return (
-              <a
-                href={doc.file.mediaItemUrl}
-                target="_blank"
-                className="clientDoc"
-              >
-                <p dangerouslySetInnerHTML={{ __html: doc.description }}></p>
-                <AiOutlineArrowDown
-                  size={20}
-                  color="#2580e5"
-                  style={{ transform: "rotate(270deg)" }}
-                />
-              </a>
+              <>
+                {doc.file != null ? (
+                  <a
+                    href={doc.file.mediaItemUrl}
+                    target="_blank"
+                    className="clientDoc"
+                  >
+                    <p
+                      dangerouslySetInnerHTML={{ __html: doc.description }}
+                    ></p>
+                    <AiOutlineArrowDown
+                      size={20}
+                      color="#2580e5"
+                      style={{ transform: "rotate(270deg)" }}
+                    />
+                  </a>
+                ) : (
+                  <div className="clientDoc" style={{ cursor: "pointer" }}>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: doc.description }}
+                    ></p>
+                    <AiOutlineArrowDown
+                      size={20}
+                      color="#2580e5"
+                      style={{ transform: "rotate(270deg)" }}
+                    />
+                  </div>
+                )}
+              </>
             );
           })}
         </div>

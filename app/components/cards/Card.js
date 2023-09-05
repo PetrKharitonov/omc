@@ -32,7 +32,7 @@ const Card = ({ post, type, id }) => {
     <Link className="card" href={`/news/${id}`}>
       <div className="image-holder">
         {type === "omcPostNews" ? (
-          <div className="card-tag-new">Новость</div>
+          <div className="card-tag-new">Новости</div>
         ) : type === "omcPostEvent" &&
           new Date(post.customdate) > Date.now() ? (
           <div className="card-tag-ev">Предстоящее</div>
