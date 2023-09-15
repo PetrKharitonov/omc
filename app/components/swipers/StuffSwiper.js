@@ -67,9 +67,15 @@ const StuffSwiper = ({ stuff }) => {
           let image = emp.node.employee.image;
           let name = emp.node.employee.name;
           let position = emp.node.employee.position;
+          let id = emp.node.id;
           return (
             <SwiperSlide key={name}>
-              <StuffCard image={image} name={name} position={position} />
+              <StuffCard
+                image={image}
+                name={name}
+                position={position}
+                id={id}
+              />
               <div style={{ height: 20 }}></div>
             </SwiperSlide>
           );

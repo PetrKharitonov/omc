@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const StuffCard = ({ image, name, position }) => {
+const StuffCard = ({ image, name, position, id }) => {
   return (
-    <div className="stuffCard">
+    <Link className="stuffCard" href={`/about/${id}`}>
       <Image
         alt={name}
         src={image.sourceUrl}
@@ -12,7 +13,7 @@ const StuffCard = ({ image, name, position }) => {
       />
       <h4 style={{ marginTop: "10px" }}>{name}</h4>
       <p style={{ marginTop: "5px" }}>{position}</p>
-    </div>
+    </Link>
   );
 };
 export default StuffCard;

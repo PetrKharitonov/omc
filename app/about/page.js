@@ -4,8 +4,11 @@ import "./aboutPage.css";
 import AboutPartners from "../components/AboutPartners";
 import { getCompanyDocs } from "../lib/getCompanyDocs";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import StuffSwiper from "../components/swipers/StuffSwiper";
+import { getStuff } from "../lib/getStuff";
 
 const AboutPage = async () => {
+  const stuff = await getStuff();
   const partners = await getPartners();
   const companyDocs = await getCompanyDocs();
 
@@ -19,6 +22,14 @@ const AboutPage = async () => {
       <div className="wrapper about-partners">
         <h2>С кем сотрудничаем</h2>
         <AboutPartners partners={partners} />
+      </div>
+      <div className="stuffBlock wrapper-wide">
+        <div className="wrapper">
+          <h2>Руководство</h2>
+        </div>
+        <div className="stuffBlock-swiper">
+          <StuffSwiper stuff={stuff.reverse()} />
+        </div>
       </div>
       <div className="wrapper about-docs">
         <h2>Документы центра</h2>

@@ -221,14 +221,14 @@ export default async function Home() {
         </div>
         <PartnerFormContainer />
       </div>
-      {/* <div className="stuffBlock wrapper-wide">
+      <div className="stuffBlock wrapper-wide">
         <div className="wrapper">
           <h2>Руководство</h2>
         </div>
         <div className="stuffBlock-swiper">
-          <StuffSwiper stuff={stuff} />
+          <StuffSwiper stuff={stuff.reverse()} />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
