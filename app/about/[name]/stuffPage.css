@@ -41,6 +41,11 @@
   font-weight: normal;
 }
 
+.stuff-biography h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 900px) {
   .stuff-preview {
     width: 100%;

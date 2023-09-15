@@ -20,7 +20,10 @@ const page = async ({ params }) => {
             <h3>
               Должность: <span>{position}</span>
             </h3>
-            <p dangerouslySetInnerHTML={{ __html: biography }}></p>
+            <div
+              className="stuff-biography"
+              dangerouslySetInnerHTML={{ __html: biography }}
+            ></div>
           </div>
           <div className="stuff-preview">
             <Image

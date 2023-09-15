@@ -62,6 +62,15 @@
   gap: 10px;
 }
 
+.newsMain-text a {
+  color: #2580e5;
+  font-weight: 500;
+}
+
+.newsMain-text a:hover {
+  text-decoration: underline;
+}
+
 .newsMain-right {
   justify-self: flex-end;
   flex-grow: 1;
