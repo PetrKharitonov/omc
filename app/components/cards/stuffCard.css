@@ -1,0 +1,8 @@
+.stuffCard {
+  filter: grayscale(85%);
+  transition: 0.2s;
+}
+
+.stuffCard:hover {
+  filter: grayscale(0%);
+}
