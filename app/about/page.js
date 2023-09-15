@@ -38,18 +38,35 @@ const AboutPage = async () => {
           {companyDocs.map((el) => {
             const doc = el.clientdoc;
             return (
-              <a
-                href={doc.file.mediaItemUrl}
-                target="_blank"
-                className="companyDoc"
-              >
-                <p dangerouslySetInnerHTML={{ __html: doc.description }}></p>
-                <AiOutlineArrowDown
-                  size={20}
-                  color="#2580e5"
-                  style={{ transform: "rotate(270deg)" }}
-                />
-              </a>
+              <>
+                {doc.file != null ? (
+                  <a
+                    href={doc.file.mediaItemUrl || ""}
+                    target="_blank"
+                    className="companyDoc"
+                  >
+                    <p
+                      dangerouslySetInnerHTML={{ __html: doc.description }}
+                    ></p>
+                    <AiOutlineArrowDown
+                      size={20}
+                      color="#2580e5"
+                      style={{ transform: "rotate(270deg)" }}
+                    />
+                  </a>
+                ) : (
+                  <div style={{ cursor: "pointer" }} className="companyDoc">
+                    <p
+                      dangerouslySetInnerHTML={{ __html: doc.description }}
+                    ></p>
+                    <AiOutlineArrowDown
+                      size={20}
+                      color="#2580e5"
+                      style={{ transform: "rotate(270deg)" }}
+                    />
+                  </div>
+                )}
+              </>
             );
           })}
         </div>
