@@ -81,12 +81,14 @@ const page = async ({ params }) => {
             <div className="newsMain-tag-e">Мероприятие</div>
           )}
           <div className="newsMain-preview-container-mobile">
-            <Image
-              src={post.preview.sourceUrl}
-              alt={post.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
+            {post.preview && (
+              <Image
+                src={post.preview.sourceUrl}
+                alt={post.title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            )}
           </div>
           <h2>{post.title}</h2>
           <div className="newsMain-info">
@@ -108,12 +110,14 @@ const page = async ({ params }) => {
         </div>
         <div className="newsMain-right">
           <div className="newsMain-preview-container">
-            <Image
-              src={post.preview.sourceUrl}
-              alt={post.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
+            {post.preview && (
+              <Image
+                src={post.preview.sourceUrl}
+                alt={post.title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            )}
           </div>
           {files.length >= 1 && (
             <div className="newsMain-file-container">

@@ -230,7 +230,6 @@ const getPost = async (id) => {
                     }
                   }
                   subtitle
-                  registertoggle
                   preview {
                     mediaDetails {
                       height
@@ -344,7 +343,6 @@ const getPost = async (id) => {
                     }
                   }
                   subtitle
-                  registertoggle
                   preview {
                     mediaDetails {
                       height
