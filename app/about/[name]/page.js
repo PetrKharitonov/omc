@@ -23,6 +23,13 @@ const page = async ({ params }) => {
             <div
               className="stuff-biography"
               dangerouslySetInnerHTML={{ __html: biography }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+                textIndent: "30px",
+                textAlign: "justify",
+              }}
             ></div>
           </div>
           <div className="stuff-preview">

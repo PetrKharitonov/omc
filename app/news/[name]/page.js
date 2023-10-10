@@ -105,7 +105,16 @@ const page = async ({ params }) => {
           </div>
           <div className="newsMain-text">
             <p>{post.subtitle}</p>
-            <p dangerouslySetInnerHTML={{ __html: post.description }}></p>
+            <p
+              dangerouslySetInnerHTML={{ __html: post.description }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+                textIndent: "30px",
+                textAlign: "justify",
+              }}
+            ></p>
           </div>
         </div>
         <div className="newsMain-right">
