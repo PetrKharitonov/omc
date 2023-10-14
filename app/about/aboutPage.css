@@ -100,3 +100,14 @@
     font-weight: 600;
   }
 }
+
+/* ---------------- */
+
+.feedback {
+  margin-top: 70px;
+}
+
+.feedback-shadow {
+  margin-top: 30px;
+  padding-top: 20px;
+}

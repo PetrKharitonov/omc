@@ -7,6 +7,7 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import StuffSwiper from "../components/swipers/StuffSwiper";
 import { getStuff } from "../lib/getStuff";
 import { getThankyouLetters } from "../lib/getThankyouLetters";
+import LettersSwiper from "../components/swipers/LettersSwiper";
 
 const AboutPage = async () => {
   const stuff = await getStuff();
@@ -135,16 +136,14 @@ const AboutPage = async () => {
           <h2>Благодарственные письма и отзывы</h2>
         </div>
 
-        <div className="shadow-container">
+        <div className="shadow-container feedback-shadow">
           <div className="letters">
             {thankyouletters && (
               <div>
                 <div className="wrapper">
                   <h3>Благодарственные письма</h3>
                 </div>
-                {thankyouletters.map((letter) => {
-                  return <div> {letter.title} </div>;
-                })}
+                <LettersSwiper letters={thankyouletters} />
               </div>
             )}
           </div>
