@@ -6,11 +6,13 @@ import { getCompanyDocs } from "../lib/getCompanyDocs";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import StuffSwiper from "../components/swipers/StuffSwiper";
 import { getStuff } from "../lib/getStuff";
+import { getThankyouLetters } from "../lib/getThankyouLetters";
 
 const AboutPage = async () => {
   const stuff = await getStuff();
   const partners = await getPartners();
   const companyDocs = await getCompanyDocs();
+  const thankyouletters = await getThankyouLetters();
 
   return (
     <div>
@@ -124,6 +126,27 @@ const AboutPage = async () => {
           <div className="requisite">
             <p>Руководитель</p>
             <p>Мучараева Оксана Ризвановна</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="feedback wrapper-wide">
+        <div className="wrapper">
+          <h2>Благодарственные письма и отзывы</h2>
+        </div>
+
+        <div className="shadow-container">
+          <div className="letters">
+            {thankyouletters && (
+              <div>
+                <div className="wrapper">
+                  <h3>Благодарственные письма</h3>
+                </div>
+                {thankyouletters.map((letter) => {
+                  return <div> {letter.title} </div>;
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>
