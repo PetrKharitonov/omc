@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const LetterCard = ({ image, title }) => {
   return (
-    <div style={{ width: "280px" }}>
+    <a style={{ width: "280px" }} href={image}>
       <Image
         alt={title}
         src={image}
@@ -11,7 +11,7 @@ const LetterCard = ({ image, title }) => {
         style={{ borderRadius: "10px", border: "1px solid grey" }}
       />
       <h4 style={{ marginTop: "10px" }}>{title}</h4>
-    </div>
+    </a>
   );
 };
 export default LetterCard;

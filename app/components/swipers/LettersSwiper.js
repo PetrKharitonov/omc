@@ -66,7 +66,6 @@ const LettersSwiper = ({ letters }) => {
         style={{ width: "100%" }}
       >
         {letters.map((letter) => {
-          console.log(letter);
           let image = letter.thankyouletter.file.sourceUrl;
           let title = letter.title;
           return (

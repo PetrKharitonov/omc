@@ -12,6 +12,7 @@ import { getPresentation } from "@/app/lib/getPresentation";
 import StuffSwiper from "./components/swipers/StuffSwiper";
 import PartnerForm from "./components/forms/PartnerForm";
 import PartnerFormContainer from "./components/forms/PartnerFormContainer";
+import Link from "next/link";
 
 export default async function Home() {
   const posts = await getLastPosts();
@@ -205,10 +206,12 @@ export default async function Home() {
         </div>
 
         <div className="wrapper solvingProblem-btn">
-          <MainBtn>
-            <p>Подробный путь</p>
-            <AiOutlineArrowDown size={20} />
-          </MainBtn>
+          <Link href="/client">
+            <MainBtn>
+              <p>Подробный путь</p>
+              <AiOutlineArrowDown size={20} />
+            </MainBtn>
+          </Link>
         </div>
       </div>
       <div className="mainPartners wrapper-wide">
