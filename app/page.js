@@ -27,6 +27,8 @@ export default async function Home() {
     presLink = presentataionUrl.pres.file.mediaItemUrl;
   }
 
+  console.log(presLink);
+
   return (
     <div>
       <div className="wrapper">
