@@ -27,8 +27,6 @@ export default async function Home() {
     presLink = presentataionUrl.pres.file.mediaItemUrl;
   }
 
-  console.log(presLink);
-
   return (
     <div>
       <div className="wrapper">
@@ -72,7 +70,7 @@ export default async function Home() {
                 <AiOutlineArrowDown size={20} />
               </MainBtn>
               {presLink ? (
-                <a href={{ presLink }} target="_blank" className="secBtn">
+                <a href={presLink} target="_blank" className="secBtn">
                   Смотреть презентацию
                 </a>
               ) : (
