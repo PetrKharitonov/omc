@@ -15,7 +15,7 @@ const getLastEvents = async () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         query: `query getLastEvents {
-              postEvents(last: 7) {
+              postEvents(first: 7) {
                 nodes {
                   omcPostEvent {
                     title

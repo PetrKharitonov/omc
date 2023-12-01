@@ -15,7 +15,7 @@ const getLastPosts = async () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         query: `query getLastPosts {
-              postEvents(last: 7) {
+              postEvents(first: 7) {
                 nodes {
                   omcPostEvent {
                     title
@@ -33,7 +33,7 @@ const getLastPosts = async () => {
                   date
                 }
               }
-              postNews(last: 7) {
+              postNews(first: 7) {
                 nodes {
                   omcPostNews {
                     customdate
