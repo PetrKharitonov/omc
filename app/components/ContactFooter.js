@@ -168,8 +168,7 @@ const ContactFooter = () => {
                 <div className="contact-info-el contact-el">
                   <FaPhoneAlt style={{ flexShrink: "0" }} />
                   <div className="contact-info-el-num">
-                    <p>{"+7 (909) 087-35-46"}</p>
-                    <p>{"+7 (909) 784-73-54"}</p>
+                    <p>{"+7 (495) 532-03-43"}</p>
                   </div>
                 </div>
               </div>
