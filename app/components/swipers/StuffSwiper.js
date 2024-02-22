@@ -12,7 +12,6 @@ import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 
 const StuffSwiper = ({ stuff }) => {
   const [swiperInstance, setSwiperInstance] = useState("");
-
   const windowWidth = useWindowWidth();
 
   return (

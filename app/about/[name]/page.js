@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getOneStuff } from "@/app/lib/getOneStuff";
 import "./stuffPage.css";
+import personIcon from "@/public/person_icon.png";
 
 const page = async ({ params }) => {
   let id = params.name.slice(0, -3);
@@ -9,7 +10,12 @@ const page = async ({ params }) => {
   let name = stuffQ.name;
   let position = stuffQ.position;
   let biography = stuffQ.biography || "";
-  let image = stuffQ.image.sourceUrl;
+  let image;
+  if (stuffQ.image == null) {
+    image = personIcon;
+  } else {
+    image = stuffQ.image.sourceUrl;
+  }
 
   return (
     <div className="one-stuff">
