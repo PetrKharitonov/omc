@@ -15,7 +15,7 @@ const getStuff = async () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         query: `query getStuff {
-              staffs {
+              staffs (first: 100) {
                 edges {
                   node {
                     employee {
