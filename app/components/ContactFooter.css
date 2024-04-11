@@ -24,7 +24,7 @@
 }
 
 .contactFooter-content form {
-  display: flex;
+  display: none; /* flex */
   flex-direction: column;
   gap: 20px;
 }
