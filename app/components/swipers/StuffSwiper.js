@@ -11,7 +11,6 @@ import { useState, useEffect } from "react";
 import { useWindowWidth } from "@/app/hooks/useWindowWidth";
 
 const StuffSwiper = ({ stuff }) => {
-  console.log(stuff);
   const [swiperInstance, setSwiperInstance] = useState("");
   const windowWidth = useWindowWidth();
 
