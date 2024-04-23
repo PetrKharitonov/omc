@@ -1,8 +1,13 @@
 import "./SecBtn.css";
 
-const SecBtn = ({ children }) => {
+const SecBtn = ({ children, fileURL }) => {
   return (
-    <a rel="noopener noreferrer" target="_blank" className="secBtn">
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      className="secBtn"
+      href={fileURL}
+    >
       {children}
     </a>
   );
