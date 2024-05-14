@@ -158,11 +158,22 @@ const ContactFooter = () => {
         <div className="contactFooter-contacts-container wrapper">
           <div className="contactFooter-contacts-data">
             <div className="contact-data">
+              <h4>Городской адрес:</h4>
+              <div className="contact-adress contact-el">
+                <MdLocationOn style={{ flexShrink: "0" }} />
+                <p>
+                  101000, г. Москва, вн. тер. г. муниципальный округ Басманный,
+                  ул. Макаренко, д. 5, стр. 1А, помещ. 1/2
+                </p>
+              </div>
+            </div>
+            <div className="contact-data">
               <h4>Юридический адрес:</h4>
               <div className="contact-adress contact-el">
                 <MdLocationOn style={{ flexShrink: "0" }} />
                 <p>
-                  г. Москва, ул. Макаренко, д. 5, стр. 1А, эт. 2, пом. I, ком.6
+                  101000, г. Москва, вн. тер. г. муниципальный округ Басманный,
+                  ул. Макаренко, д. 5, стр. 1А, помещ. 1/2
                 </p>
               </div>
             </div>
@@ -176,7 +187,8 @@ const ContactFooter = () => {
                 <div className="contact-info-el contact-el">
                   <FaPhoneAlt style={{ flexShrink: "0" }} />
                   <div className="contact-info-el-num">
-                    <p>{"+7 (495) 532-03-43"}</p>
+                    <p>+7 (925) 313-51-65</p>
+                    <p>+7 (495) 532-03-43 (гор.)</p>
                   </div>
                 </div>
               </div>
