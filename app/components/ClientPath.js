@@ -107,7 +107,7 @@ const ClientPath = () => {
                 />
               </div>
               <p className={600 < y && 900 > y && "path-tagfw"}>
-                Выбор стратегиие
+                Выбор стратегии
               </p>
             </div>
             <div className="path-tag">
